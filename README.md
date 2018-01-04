@@ -25,11 +25,11 @@ insert into test_table (some_name, some_id) values ('test val', 3);
 
 We could define a processor as follows:
 
-[[https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-example.png|alt=flowexample]]
+![Flow Example](https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-example.png)
 
-[[https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/processor-details.png|alt=processor-details]]
+![Processor Details]([https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/processor-details.png)
 
 This would result in the following flow file attributes being applied.
 
-[[https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-file-attributes.png|alt=flow-file-attributes]]
+![Flow File Attributes]([https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-file-attributes.png)
 
