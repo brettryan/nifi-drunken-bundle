@@ -27,9 +27,9 @@ We could define a processor as follows:
 
 ![Flow Example](https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-example.png)
 
-![Processor Details]([https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/processor-details.png)
-
+![Processor Details](https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/processor-details.png)
+                    
 This would result in the following flow file attributes being applied.
 
-![Flow File Attributes]([https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-file-attributes.png)
+![Flow File Attributes](https://github.com/brettryan/nifi-drunken-bundle/blob/master/doc/img/flow-file-attributes.png)
 
