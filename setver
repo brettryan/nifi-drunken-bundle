@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mvn -DnewVersion="$1" versions:set
+find . -type f -name pom.xml.versionsBackup -delete
+
