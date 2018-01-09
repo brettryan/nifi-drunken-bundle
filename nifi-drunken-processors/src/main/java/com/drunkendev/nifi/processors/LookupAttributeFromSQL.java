@@ -1,5 +1,5 @@
 /*
- * UpdateAttributesFromSQL.java    Jan 3 2018, 18:27
+ * LookupAttributeFromSQL.java    Jan 3 2018, 18:27
  *
  * Copyright 2018 Apache NiFi Project.
  *
@@ -69,7 +69,7 @@ import org.apache.nifi.util.StopWatch;
     @WritesAttribute(attribute = "updateattributesfromsql.query.count",
                      description = "Count of properties set from SQL query.")
 })
-public class UpdateAttributesFromSQL extends AbstractProcessor {
+public class LookupAttributeFromSQL extends AbstractProcessor {
 
     static final PropertyDescriptor PROP_ATTR_NAMES = new PropertyDescriptor.Builder()
             .name("Attributes Names")

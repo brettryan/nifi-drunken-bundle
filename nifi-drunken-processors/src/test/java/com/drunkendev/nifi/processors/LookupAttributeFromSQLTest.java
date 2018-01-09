@@ -1,5 +1,5 @@
 /*
- * UpdateAttributesFromSQLTest.java    Jan 3 2018, 18:27
+ * LookupAttributeFromSQLTest.java    Jan 3 2018, 18:27
  *
  * Copyright 2018 Apache NiFi Project.
  *
@@ -44,17 +44,17 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.ATTR_DURATION;
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.ATTR_PROP_COUNT;
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.PROP_ATTR_NAMES;
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.PROP_SQL_SELECT_QUERY;
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.REL_FAILURE;
-import static com.drunkendev.nifi.processors.UpdateAttributesFromSQL.REL_SUCCESS;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.ATTR_DURATION;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.ATTR_PROP_COUNT;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.PROP_ATTR_NAMES;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.PROP_SQL_SELECT_QUERY;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.REL_FAILURE;
+import static com.drunkendev.nifi.processors.LookupAttributeFromSQL.REL_SUCCESS;
 
 
-public class UpdateAttributesFromSQLTest {
+public class LookupAttributeFromSQLTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UpdateAttributesFromSQLTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LookupAttributeFromSQLTest.class);
 
     private final static String DB_LOCATION = "target/db";
 
@@ -74,9 +74,9 @@ public class UpdateAttributesFromSQLTest {
         DBCPService dbcp = new DBCPServiceSimpleImpl();
         Map<String, String> dbcpProperties = new HashMap<>();
 
-        runner = TestRunners.newTestRunner(UpdateAttributesFromSQL.class);
+        runner = TestRunners.newTestRunner(LookupAttributeFromSQL.class);
         runner.addControllerService("dbcp", dbcp, dbcpProperties);
-        runner.setProperty(UpdateAttributesFromSQL.PROP_DBCP_SERVICE, "dbcp");
+        runner.setProperty(LookupAttributeFromSQL.PROP_DBCP_SERVICE, "dbcp");
         runner.assertValid(dbcp);
         runner.enableControllerService(dbcp);
 
@@ -129,7 +129,7 @@ public class UpdateAttributesFromSQLTest {
     public void testProcessor2() throws InitializationException, ClassNotFoundException, SQLException, IOException {
         runner.setIncomingConnection(true);
         runner.setProperty(PROP_SQL_SELECT_QUERY, "select * from test_data where id = 2");
-        runner.setProperty(UpdateAttributesFromSQL.PROP_LOWER_CASE_NAMES, "false");
+        runner.setProperty(LookupAttributeFromSQL.PROP_LOWER_CASE_NAMES, "false");
         runner.assertValid();
 
         runner.enqueue("".getBytes());
@@ -152,7 +152,7 @@ public class UpdateAttributesFromSQLTest {
     public void testProcessor3() throws InitializationException, ClassNotFoundException, SQLException, IOException {
         runner.setIncomingConnection(true);
         runner.setProperty(PROP_SQL_SELECT_QUERY, "select * from test_data where id = 3");
-        runner.setProperty(UpdateAttributesFromSQL.PROP_OVERWRITE_EXISTING_ATTRIBUTES, "false");
+        runner.setProperty(LookupAttributeFromSQL.PROP_OVERWRITE_EXISTING_ATTRIBUTES, "false");
         runner.assertValid();
 
         Map<String, String> props = new HashMap<>();
@@ -177,7 +177,7 @@ public class UpdateAttributesFromSQLTest {
     public void testProcessor4() throws InitializationException, ClassNotFoundException, SQLException, IOException {
         runner.setIncomingConnection(true);
         runner.setProperty(PROP_SQL_SELECT_QUERY, "select * from test_data where id = 3");
-        runner.setProperty(UpdateAttributesFromSQL.PROP_ATTR_PREFIX, "my-prefix-");
+        runner.setProperty(LookupAttributeFromSQL.PROP_ATTR_PREFIX, "my-prefix-");
         runner.assertValid();
 
         Map<String, String> props = new HashMap<>();
@@ -200,7 +200,7 @@ public class UpdateAttributesFromSQLTest {
     public void testProcessor5() throws InitializationException, ClassNotFoundException, SQLException, IOException {
         runner.setIncomingConnection(true);
         runner.setProperty(PROP_SQL_SELECT_QUERY, "select * from test_data where id = -1");
-        runner.setProperty(UpdateAttributesFromSQL.PROP_FAIL_ON_NO_RECORDS, "true");
+        runner.setProperty(LookupAttributeFromSQL.PROP_FAIL_ON_NO_RECORDS, "true");
         runner.assertValid();
 
         runner.enqueue("".getBytes());
