@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.apache.nifi</groupId>
     <artifactId>nifi-nar-bundles</artifactId>
-    <version>1.3.0</version>
+    <version>1.4.0</version>
   </parent>
 
   <groupId>com.drunkendev</groupId>
@@ -34,6 +34,10 @@
   <modules>
     <module>nifi-drunken-nar</module>
     <module>nifi-drunken-processors</module>
+    <module>nifi-drunken-services</module>
+    <module>nifi-drunken-services-api</module>
+    <module>nifi-drunken-services-api-nar</module>
+    <module>nifi-drunken-services-nar</module>
   </modules>
 
   <name>NiFi Drunken Dev - Bundle</name>
@@ -58,6 +62,23 @@
         <groupId>com.drunkendev</groupId>
         <artifactId>nifi-drunken-nar</artifactId>
         <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.drunkendev</groupId>
+        <artifactId>nifi-drunken-services</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.drunkendev</groupId>
+        <artifactId>nifi-drunken-services-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.drunkendev</groupId>
+        <artifactId>nifi-drunken-services-api-nar</artifactId>
+        <version>${project.version}</version>
+        <type>nar</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
